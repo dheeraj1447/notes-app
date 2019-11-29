@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+input:active,
+select:active,
+button:active,
+textarea:active {
+  outline: none;
+}
+
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+  box-shadow: none !important;
+}
+.btn:focus, .btn.focus {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
