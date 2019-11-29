@@ -3,12 +3,14 @@ export class Note {
   private _title: string;
   private _notes: string;
   private _updatedOn: string;
+  private _enabled: Boolean;
 
-  constructor(id?: number, title?: string, notes?: string, updatedOn?: string) {
+  constructor(id?: number, title?: string, notes?: string, updatedOn?: string, enabled?: Boolean) {
     this._id = id;
     this._title = title;
     this._notes = notes;
     this._updatedOn = updatedOn;
+    this._enabled = enabled;
   }
 
   get id(): number {
@@ -41,5 +43,13 @@ export class Note {
 
   set updatedOn(value: string) {
     this._updatedOn = value;
+  }
+
+  get enabled(): Boolean {
+    return this._enabled;
+  }
+
+  set enabled(value: Boolean) {
+    this._enabled = value;
   }
 }

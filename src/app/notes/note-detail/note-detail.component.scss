@@ -1,0 +1,29 @@
+.note-detail-container {
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  width: 100%;
+  height: 100%;
+}
+
+.note-detail-container p {
+  margin-bottom: 0 !important;
+}
+
+.note-detail-container .note-title {
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+  padding: 10px 10px;
+}
+
+.note-detail-container .note-body {
+  width: 100%;
+  padding: 10px 10px;
+}
+
+.note-title:focus {
+  outline: none !important;
+}
+
+.note-body:focus {
+  outline: none !important;
+}

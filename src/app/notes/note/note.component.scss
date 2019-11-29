@@ -3,3 +3,11 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+.list-group-item {
+  cursor: pointer !important;
+}
+
+.list-group-item.active {
+  color: #ffffff !important;
+}
