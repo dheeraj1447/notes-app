@@ -11,3 +11,9 @@
 .list-group-item.active {
   color: #ffffff !important;
 }
+
+.list-group-item h5 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

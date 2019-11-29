@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Note} from '../../models/note.model';
 import {NotesService} from '../../services/notes.service';
 
@@ -8,6 +8,8 @@ import {NotesService} from '../../services/notes.service';
   styleUrls: ['./note-detail.component.scss']
 })
 export class NoteDetailComponent implements OnInit {
+  @ViewChild('noteTitle') noteTitle: ElementRef;
+  @ViewChild('noteBody') noteBody: ElementRef;
   note: Note;
 
   constructor(private noteService: NotesService) { }
@@ -21,10 +23,10 @@ export class NoteDetailComponent implements OnInit {
   }
 
   onNoteTitleChange(title: string) {
-    console.log(title);
+    this.noteService.update(this.note.id, title, this.note.notes);
   }
 
   onNoteNotesChange(notes: string) {
-    console.log(notes);
+    this.noteService.update(this.note.id, this.note.title, notes);
   }
 }

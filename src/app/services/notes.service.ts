@@ -7,6 +7,7 @@ import {Observable, Subject} from 'rxjs';
 })
 export class NotesService {
   private _featureNote: Subject<Note> = new Subject<Note>();
+  private _notesChanged: Subject<Note[]> = new Subject<Note[]>();
   private _notes: Note[] = [
     new Note(1, 'First note', 'I\'m curious, jfhfghfhfhfhg gh fh ghffh fhgfhf fhgfhg gf gfkh gkgfkh gf',
       new Date(2019, 5, 21).toString(), false),
@@ -31,5 +32,15 @@ export class NotesService {
 
   get featureNote(): Observable<Note> {
     return this._featureNote.asObservable();
+  }
+
+  get notesChanged(): Observable<Note[]> {
+    return this._notesChanged.asObservable();
+  }
+
+  public update(noteId: number, title: string, notes: string) {
+    const note: Note = this._notes.find((not: Note) => not.id === noteId);
+    note.title = title;
+    note.notes = notes;
   }
 }

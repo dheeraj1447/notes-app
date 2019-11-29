@@ -2,12 +2,9 @@
   <div class="p-2 text-center">
     <p class="text-muted">{{getReadableDate(note.updatedOn).toDateString()}} at {{getReadableDate(note.updatedOn).toLocaleTimeString('en-US')}}</p>
   </div>
-  <div class="note-title" contenteditable="true" (input)="onNoteTitleChange($event.target.innerText)">
-    <h4>{{note.title}}</h4>
-  </div>
-  <div class="note-body" contenteditable="true" (input)="onNoteNotesChange($event.target.innerText)">
-    <p>{{note.notes}}</p>
-  </div>
+  <input class="note-title" [(ngModel)]="note.title" placeholder="Note title goes here...">
+  <hr>
+  <textarea class="note-body" [(ngModel)]="note.notes" placeholder="Node body goes here..."></textarea>
 </div>
 <ng-template #infoText>
   <div class="note-detail-container text-center p-5">

@@ -1,9 +1,11 @@
 <a class="list-group-item list-group-item-action flex-column align-items-start" [ngClass]="{'active': note.enabled}">
   <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1">{{note.title}}</h5>
-    <small>{{getHumanizedDate(note.updatedOn)}}</small>
+    <h5 class="mb-1" *ngIf="note.title != ''">{{note.title}}</h5>
+    <h5 class="mb-1" *ngIf="note.title === ''">Enter Title</h5>
   </div>
   <div class="list-notes">
-    <p>{{note.notes}}</p>
+    <p *ngIf="note.notes != ''">{{note.notes}}</p>
+    <p *ngIf="note.notes === ''">Enter note body...</p>
   </div>
+  <small>{{getHumanizedDate(note.updatedOn)}}</small>
 </a>

@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { NoteDetailComponent } from './notes/note-detail/note-detail.component';
 import { NoteComponent } from './notes/note/note.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NoteComponent } from './notes/note/note.component';
     NoteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
