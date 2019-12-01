@@ -20,4 +20,9 @@ export class UpdateNote implements Action {
   constructor(public note: Note) {}
 }
 
-export type NotesActions = TryCreateNote | CreateNote | UpdateNote;
+export class DeleteNote implements Action {
+  readonly type = DELETE_NOTE;
+  constructor(public noteId: number) {}
+}
+
+export type NotesActions = TryCreateNote | CreateNote | UpdateNote | DeleteNote;

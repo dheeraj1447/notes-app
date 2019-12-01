@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <button class="btn btn-outline-success"><i class="fa fa-plus"></i></button>
+          <button class="btn btn-outline-success" (click)="create()"><i class="fa fa-plus"></i></button>
         </li>
         <li class="nav-item">
-          <button class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+          <button class="btn btn-outline-danger" (click)="delete()"><i class="fa fa-trash"></i></button>
         </li>
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search your notes...">

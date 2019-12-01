@@ -11,11 +11,15 @@ export class NotesService {
   constructor() {
   }
 
+  get featureNote(): Observable<Note> {
+    return this._featureNote.asObservable();
+  }
+
   onFeatureNote(note: Note) {
     this._featureNote.next(note);
   }
 
-  get featureNote(): Observable<Note> {
-    return this._featureNote.asObservable();
+  deleteFeatureNote() {
+    this._featureNote.next(null);
   }
 }

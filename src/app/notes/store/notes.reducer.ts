@@ -12,12 +12,23 @@ const initialState: State = {
 export function notesReducer(state = initialState, action: NoteActions.NotesActions) {
   switch (action.type) {
     case (NoteActions.CREATE_NOTE):
-      state.notes.push(action.note);
-      return state;
+      state.notes.forEach((n: Note) => n.enabled = false);
+      state.notes.unshift(action.note);
+      return {
+        ...state
+      };
     case (NoteActions.UPDATE_NOTE):
-      const notes: Note[] = state.notes.map((n: Note) => n.id === action.note.id ? Object.assign(action.note, n) : n);
+      const notes = state.notes.map((n: Note) => n.id === action.note.id ? Object.assign(action.note, n) : n);
       state.notes = notes;
-      return state;
+      return {
+        ...state
+      };
+    case (NoteActions.DELETE_NOTE):
+      const noteIndex = state.notes.findIndex((n: Note) => n.id === action.noteId);
+      state.notes.splice(noteIndex, 1);
+      return {
+        ...state
+      };
     default:
       return state;
   }
