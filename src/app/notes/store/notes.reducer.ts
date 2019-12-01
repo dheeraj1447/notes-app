@@ -29,6 +29,16 @@ export function notesReducer(state = initialState, action: NoteActions.NotesActi
       return {
         ...state
       };
+    case (NoteActions.DEFAULT_ENABLED):
+      state.notes.forEach((n: Note) => n.enabled = false);
+      return {
+        ...state
+      };
+    case (NoteActions.CLEAR_NOTES):
+      state.notes = [];
+      return {
+        ...state
+      };
     default:
       return state;
   }

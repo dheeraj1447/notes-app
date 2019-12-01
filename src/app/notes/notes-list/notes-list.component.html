@@ -1,5 +1,5 @@
 <div class="list-group" *ngIf="notes.length > 0 else emptyNotes">
- <app-note *ngFor="let note of notes" [note]="note" (click)="onSelectedNote(note)"></app-note>
+ <app-note *ngFor="let note of notes| noteSearch: searchText" [note]="note" (click)="onSelectedNote(note)"></app-note>
 </div>
 
 <ng-template #emptyNotes>

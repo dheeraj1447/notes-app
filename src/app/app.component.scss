@@ -21,3 +21,26 @@
   width: 100%;
   transition: margin-left .5s;
 }
+
+@media (max-width: 768px)  {
+  .notes-container {
+    height: 100%;
+    display: block;
+  }
+
+  .notes-list {
+    width: 100% !important;
+    height: 250px !important;
+    overflow-y: auto;
+  }
+
+  .note-detail {
+    height: 250px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .btn.btn-outline-primary {
+    display: none;
+  }
+}

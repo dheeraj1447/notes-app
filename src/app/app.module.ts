@@ -12,6 +12,7 @@ import {localStorageSync} from 'ngrx-store-localstorage';
 import {reducers} from './store/app.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {NotesEffects} from './notes/store/notes.effects';
+import { NoteSearchPipe } from './pipes/note-search.pipe';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({keys: ['notes'], rehydrate: true})(reducer);
@@ -25,7 +26,8 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     HeaderComponent,
     NotesListComponent,
     NoteDetailComponent,
-    NoteComponent
+    NoteComponent,
+    NoteSearchPipe
   ],
   imports: [
     BrowserModule,

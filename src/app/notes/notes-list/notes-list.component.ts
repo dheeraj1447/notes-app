@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NotesService} from '../../services/notes.service';
 import {Note} from '../../models/note.model';
 import {Store} from '@ngrx/store';
@@ -11,6 +11,7 @@ import * as fromApp from '../../store/app.reducer';
 })
 export class NotesListComponent implements OnInit {
   notes: Note[];
+  @Input() searchText: string;
 
   constructor(private noteService: NotesService, private store: Store<fromApp.AppState>) {
   }

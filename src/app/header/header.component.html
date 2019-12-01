@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand bg-light navbar-light">
   <div class="container">
-    <a class="navbar-brand">NotesApp</a>
+    <a class="navbar-brand">Notes</a>
     <button class="navbar-toggler" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,7 +13,7 @@
           <button class="btn btn-outline-danger" (click)="delete()"><i class="fa fa-trash"></i></button>
         </li>
         <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search your notes...">
+          <input class="form-control mr-sm-2" name="search" type="search" [(ngModel)]="searchText" (input)="onSearchText()" placeholder="Search your notes...">
         </form>
       </ul>
     </div>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import * as NotesActions from '../notes/store/notes.actions';
 import {Store} from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
@@ -12,6 +12,8 @@ import {NotesService} from '../services/notes.service';
 })
 export class HeaderComponent implements OnInit {
   featureNote: Note;
+  searchText: string;
+  @Output() search: EventEmitter<String> = new EventEmitter<String>();
 
   constructor(private store: Store<fromApp.AppState>, private notesService: NotesService) { }
 
@@ -26,5 +28,10 @@ export class HeaderComponent implements OnInit {
   delete() {
     this.store.dispatch(new NotesActions.DeleteNote(this.featureNote.id));
     this.notesService.deleteFeatureNote();
+  }
+
+  onSearchText() {
+    console.log(this.searchText);
+    this.search.emit(this.searchText);
   }
 }
