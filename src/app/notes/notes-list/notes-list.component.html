@@ -1,3 +1,9 @@
-<div class="list-group">
+<div class="list-group" *ngIf="notes.length > 0 else emptyNotes">
  <app-note *ngFor="let note of notes" [note]="note" (click)="onSelectedNote(note)"></app-note>
 </div>
+
+<ng-template #emptyNotes>
+  <div class="list-group text-center p-5">
+    <h6>Notes are Empty! Start Adding them</h6>
+  </div>
+</ng-template>

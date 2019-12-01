@@ -7,5 +7,5 @@
     <p *ngIf="note.notes != ''">{{note.notes}}</p>
     <p *ngIf="note.notes === ''">Enter note body...</p>
   </div>
-  <small>{{getHumanizedDate(note.updatedOn)}}</small>
+  <small>{{timeFromNow | async}}</small>
 </a>

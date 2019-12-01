@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NotesService} from '../../services/notes.service';
 import {Note} from '../../models/note.model';
+import {Store} from '@ngrx/store';
+import * as fromApp from '../../store/app.reducer';
 
 @Component({
   selector: 'app-notes-list',
@@ -8,17 +10,18 @@ import {Note} from '../../models/note.model';
   styleUrls: ['./notes-list.component.scss']
 })
 export class NotesListComponent implements OnInit {
-  notes: Note[] = [];
+  notes: Note[];
 
-  constructor(private noteService: NotesService) {
+  constructor(private noteService: NotesService, private store: Store<fromApp.AppState>) {
   }
 
   ngOnInit() {
-    this.notes = this.noteService.notes;
-    this.noteService.notesChanged.subscribe((notes: Note[]) => this.notes = notes);
+    this.store.select('notes').subscribe((notes) => this.notes = notes.notes);
   }
 
   onSelectedNote(note: Note) {
+    this.notes.forEach((n: Note) => n.enabled = false);
+    note.enabled = true;
     this.noteService.onFeatureNote(note);
   }
 }

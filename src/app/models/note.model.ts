@@ -52,4 +52,8 @@ export class Note {
   set enabled(value: Boolean) {
     this._enabled = value;
   }
+
+  public toJSON() {
+    return {id: this._id, title: this._title, notes: this._notes, updatedOn: this._updatedOn, enabled: this._enabled};
+  }
 }

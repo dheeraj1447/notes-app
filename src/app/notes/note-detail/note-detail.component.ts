@@ -1,6 +1,9 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Note} from '../../models/note.model';
 import {NotesService} from '../../services/notes.service';
+import * as NotesActions from '../store/notes.actions';
+import {Store} from '@ngrx/store';
+import * as fromApp from '../../store/app.reducer';
 
 @Component({
   selector: 'app-note-detail',
@@ -8,11 +11,9 @@ import {NotesService} from '../../services/notes.service';
   styleUrls: ['./note-detail.component.scss']
 })
 export class NoteDetailComponent implements OnInit {
-  @ViewChild('noteTitle') noteTitle: ElementRef;
-  @ViewChild('noteBody') noteBody: ElementRef;
   note: Note;
 
-  constructor(private noteService: NotesService) { }
+  constructor(private noteService: NotesService, private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.noteService.featureNote.subscribe((note: Note) => this.note = note);
@@ -22,11 +23,8 @@ export class NoteDetailComponent implements OnInit {
     return new Date(updatedOn);
   }
 
-  onNoteTitleChange(title: string) {
-    this.noteService.update(this.note.id, title, this.note.notes);
-  }
-
-  onNoteNotesChange(notes: string) {
-    this.noteService.update(this.note.id, this.note.title, notes);
+  onNoteChange() {
+    this.note.updatedOn = new Date().toString();
+    this.store.dispatch(new NotesActions.UpdateNote(this.note));
   }
 }
