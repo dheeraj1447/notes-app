@@ -17,7 +17,7 @@ export class NotesEffects {
   createNote: Observable<Action> = this.actions$.pipe(
     ofType(NoteActions.TRY_CREATE),
     switchMap((data: NoteActions.TryCreateNote) => {
-        const note = new Note(Math.floor(Math.random() * 1000), 'New Title', 'New Notes', new Date().toString(), true);
+        const note = new Note(NotesService.generateID(), 'New Title', 'New Notes', new Date().toString(), true);
         this.notesService.onFeatureNote(note);
         return from(
           [new NoteActions.CreateNote(note)]);

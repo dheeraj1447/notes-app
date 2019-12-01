@@ -31,7 +31,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearchText() {
-    console.log(this.searchText);
     this.search.emit(this.searchText);
   }
 }

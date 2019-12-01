@@ -6,7 +6,7 @@ export interface State {
 }
 
 const initialState: State = {
-  notes: [new Note(Math.floor(Math.random() * 1000), 'Title', 'notes', new Date(2019, 11, 1, 17, 11, 20).toString(), false)]
+  notes: []
 };
 
 export function notesReducer(state = initialState, action: NoteActions.NotesActions) {

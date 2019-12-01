@@ -15,6 +15,10 @@ export class NotesService {
     return this._featureNote.asObservable();
   }
 
+  static generateID() {
+    return Math.floor(Math.random() * 1000);
+  }
+
   onFeatureNote(note: Note) {
     this._featureNote.next(note);
   }
