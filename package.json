@@ -25,7 +25,7 @@
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ngrx-store-localstorage": "^8.0.0",
     "ngx-logger": "^4.0.7",
     "rxjs": "~6.3.3",
